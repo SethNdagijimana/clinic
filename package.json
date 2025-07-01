@@ -36,5 +36,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "Hospitality",
+  "main": "index.js",
+  "repository": "https://github.com/SethNdagijimana/clinic",
+  "author": "<sethreas@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
   }
 }
