@@ -1,5 +1,11 @@
+import Signup from "./views/pages/SignUp/Signup"
+
 function App() {
-  return <div>Ready to start</div>
+  return (
+    <div>
+      <Signup />
+    </div>
+  )
 }
 
 export default App
