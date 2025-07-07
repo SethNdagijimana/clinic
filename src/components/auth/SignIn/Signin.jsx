@@ -1,7 +1,7 @@
 import { Cross, Lock, Mail } from "lucide-react"
 import React, { useState } from "react"
 
-const Signup = () => {
+const Signin = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -80,4 +80,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Signin
