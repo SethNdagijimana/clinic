@@ -7,6 +7,7 @@ import {
 import React from "react"
 
 import { Navigate, Route, Routes } from "react-router-dom"
+import AppNavBar from "../../components/AppNavBar"
 import DashboardLayout from "../../components/DashboardLayout/DashboardLayout"
 
 const Dashboard = () => {
@@ -100,7 +101,7 @@ const Dashboard = () => {
         initialSidebarState={true}
       >
         {{
-          // nav: <AppNavBar />,
+          nav: <AppNavBar />,
           content: (
             <Routes>
               {/* Dashboard home */}

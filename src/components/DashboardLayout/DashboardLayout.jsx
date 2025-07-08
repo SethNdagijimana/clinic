@@ -85,7 +85,7 @@ const DashboardLayout = ({
       <aside
         className={`
           fixed inset-y-0 left-0
-          bg-[#F9FCFF]
+          bg-[#fafafa]
           transform transition-all duration-300 ease-in-out
           ${sidebarWidthClass}
           ${
@@ -102,7 +102,7 @@ const DashboardLayout = ({
         <div className="flex flex-col h-full">
           {/* Sidebar Header */}
           <div
-            className={`relative border-b bg-[#F9FCFF] ${
+            className={`relative border-b bg-[#fafafa] ${
               isSidebarCollapsed ? "h-20" : "h-24"
             } flex items-center justify-center`}
           >
@@ -129,7 +129,7 @@ const DashboardLayout = ({
           )}
 
           {/* Sidebar Navigation */}
-          <nav className="flex-1 px-4 py-6 overflow-y-auto scrollbar-none bg-[#F9FCFF]">
+          <nav className="flex-1 px-4 py-6 overflow-y-auto scrollbar-none bg-[#fafafa]">
             <ul className="space-y-2">
               {menuItems.map((menu) => (
                 <li key={menu.name} className="space-y-2">
@@ -224,7 +224,7 @@ const DashboardLayout = ({
             transition-all duration-300
             z-40 border-b border-green-400/10
             backdrop-blur-xl
-            bg-gray-900/80
+            bg-[#cccccc]
           `}
         >
           <div className="flex items-center h-16 px-4">
@@ -243,7 +243,7 @@ const DashboardLayout = ({
         <div className="h-16" />
 
         {/* Main Content Area */}
-        <main className="min-h-[calc(100vh-4rem)] bg-gray-900 px-4 py-6">
+        <main className="min-h-[calc(100vh-4rem)] bg-[#cccccc] px-4 py-6">
           <div className="max-w-[1400px] mx-auto w-full">
             {children.content}
           </div>
