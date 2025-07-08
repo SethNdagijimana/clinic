@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { initializeAuth } from "./slices/user_management_slice"
 
 const Signin = React.lazy(() => import("./components/auth/SignIn/Signin"))
+const Dashboard = React.lazy(() => import("./views/dashboards/Dashboard"))
 
 const loading = (
   <div className="pt-3 text-center">
@@ -21,7 +22,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Signin />} />
-      <Route path="/dashboard/*" element={<div>Dashboard Component</div>} />
+      <Route path="/dashboard/*" element={<Dashboard />} />
     </Routes>
   )
 }
