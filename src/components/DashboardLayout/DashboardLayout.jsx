@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Menu } from "lucide-react"
+import { ArrowLeft, ArrowRight, Cross, Menu } from "lucide-react"
 import React, { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 
@@ -85,7 +85,7 @@ const DashboardLayout = ({
       <aside
         className={`
           fixed inset-y-0 left-0
-          bg-gray-900
+          bg-[#F9FCFF]
           transform transition-all duration-300 ease-in-out
           ${sidebarWidthClass}
           ${
@@ -102,32 +102,34 @@ const DashboardLayout = ({
         <div className="flex flex-col h-full">
           {/* Sidebar Header */}
           <div
-            className={`p-6 border-b flex items-center justify-between bg-black/20`}
+            className={`relative border-b bg-[#F9FCFF] ${
+              isSidebarCollapsed ? "h-20" : "h-24"
+            } flex items-center justify-center`}
           >
-            <h1
-              className={`text-2xl text-white font-mono bg-clip-text text-transparent bg-gradient-to-r from-green-950/80 to-white transition-all duration-300`}
-            >
-              {!isMobile && isSidebarCollapsed ? title.charAt(0) : title}
-            </h1>
-            {!isMobile && (
+            <Cross size={40} color="#3F84DB" fill="#3F84DB" />
+            {/* Collapse button when expanded */}
+            {!isMobile && !isSidebarCollapsed && (
               <button
-                onClick={() => setSidebarCollapsed(!isSidebarCollapsed)}
-                className="text-white hover:text-gray-500 p-2 rounded-lg transition-all duration-200"
-                aria-label={
-                  isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"
-                }
+                onClick={() => setSidebarCollapsed(true)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-500 p-2 rounded-lg transition-all duration-200"
               >
-                {isSidebarCollapsed ? (
-                  <ArrowRight size={16} className="text-[#fff]" />
-                ) : (
-                  <ArrowLeft size={16} className="text-[#fff]" />
-                )}
+                <ArrowLeft size={16} className="text-[#758796]" />
               </button>
             )}
           </div>
 
+          {/* Expand button when collapsed */}
+          {!isMobile && isSidebarCollapsed && (
+            <button
+              onClick={() => setSidebarCollapsed(false)}
+              className="mx-auto mt-2 p-2 rounded-lg text-[#758796] hover:text-gray-500 transition-all duration-200"
+            >
+              <ArrowRight size={16} />
+            </button>
+          )}
+
           {/* Sidebar Navigation */}
-          <nav className="flex-1 px-4 py-6 overflow-y-auto scrollbar-none bg-gray-900">
+          <nav className="flex-1 px-4 py-6 overflow-y-auto scrollbar-none bg-[#F9FCFF]">
             <ul className="space-y-2">
               {menuItems.map((menu) => (
                 <li key={menu.name} className="space-y-2">

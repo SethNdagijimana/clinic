@@ -1,4 +1,9 @@
-import { Activity, CalendarCheck, LayoutDashboard } from "lucide-react"
+import {
+  Calendar,
+  ClipboardMinus,
+  HeartHandshake,
+  LayoutDashboard
+} from "lucide-react"
 import React from "react"
 
 import { Navigate, Route, Routes } from "react-router-dom"
@@ -13,28 +18,28 @@ const Dashboard = () => {
   const menuItems = [
     {
       name: "Dashboard",
-      icon: <LayoutDashboard size={14} className="text-[#fff]" />,
+      icon: <LayoutDashboard size={14} className="text-[#758796]" />,
       path: "/dashboard"
     },
     {
-      name: "Observation",
-      icon: <Activity size={14} className="text-[#fff]" />,
-      path: "/dashboard/observation",
+      name: "Patients",
+      icon: <HeartHandshake size={14} className="text-[#758796]" />,
+      path: "/dashboard/patients",
       subItems: [
         {
-          name: "New Observation",
-          path: "/dashboard/observation/new"
+          name: "Register Patient",
+          path: "/dashboard/patients/new"
         },
         {
-          name: "View Observations",
-          path: "/dashboard/observation/view"
+          name: "View Patients",
+          path: "/dashboard/patients/view"
         }
       ]
     },
     {
-      name: "Action",
-      icon: <Activity size={14} className="text-[#fff]" />,
-      path: "/dashboard/action"
+      name: "Appointments",
+      icon: <Calendar size={14} className="text-[#758796]" />,
+      path: "/dashboard/Appointments"
       // subItems: canCreate
       //   ? [
       //       {
@@ -54,9 +59,9 @@ const Dashboard = () => {
       //     ]
     },
     {
-      name: "Schedule",
-      icon: <CalendarCheck size={14} className="text-[#fff]" />,
-      path: "/dashboard/schedule"
+      name: "Reports",
+      icon: <ClipboardMinus size={14} className="text-[#758796]" />,
+      path: "/dashboard/Reports"
       // subItems: canCreate
       //   ? [
       //       {
