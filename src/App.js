@@ -1,10 +1,41 @@
-import Signup from "./views/pages/SignUp/Signup"
+import React, { Suspense, useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { initializeAuth } from "./slices/user_management_slice"
 
-function App() {
+const Signin = React.lazy(() => import("./components/auth/SignIn/Signin"))
+const Dashboard = React.lazy(() => import("./views/dashboards/Dashboard"))
+
+const loading = (
+  <div className="pt-3 text-center">
+    <div className="sk-spinner sk-spinner-pulse"></div>
+  </div>
+)
+
+const AppRoutes = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(initializeAuth())
+  }, [dispatch])
+
   return (
-    <div>
-      <Signup />
-    </div>
+    <Routes>
+      <Route path="/" element={<Signin />} />
+      <Route path="/dashboard/*" element={<Dashboard />} />
+    </Routes>
+  )
+}
+
+const App = () => {
+  return (
+    <>
+      <BrowserRouter>
+        <Suspense fallback={loading}>
+          <AppRoutes />
+        </Suspense>
+      </BrowserRouter>
+    </>
   )
 }
 
