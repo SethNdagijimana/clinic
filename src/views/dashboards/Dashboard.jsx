@@ -9,6 +9,7 @@ import React from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import AppNavBar from "../../components/AppNavBar"
 import DashboardLayout from "../../components/DashboardLayout/DashboardLayout"
+import DashboardStats from "./DashboardStats"
 
 const Dashboard = () => {
   // const { user } = useSelector((state) => state.app.userMngmt)
@@ -105,7 +106,7 @@ const Dashboard = () => {
           content: (
             <Routes>
               {/* Dashboard home */}
-              <Route path="/" element={<div> hi</div>} />
+              <Route path="/" element={<DashboardStats />} />
 
               {/* Catch all route - redirect to dashboard */}
               <Route path="*" element={<Navigate to="/" replace />} />
